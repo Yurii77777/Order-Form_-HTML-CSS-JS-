@@ -28,12 +28,6 @@ const handleOpenOrderForm = () => {
  * Функция фиксирует позицию лейбла, когда инпут имеет любое значение
  */
 const handleLabelPosition = () => {
-    inputEmail.value && inputEmail.classList.add("active");
-    inputEmail.value === "" && inputEmail.classList.remove("active");
-
-    inputPhone.value && inputPhone.classList.add("active");
-    inputPhone.value === "" && inputPhone.classList.remove("active");
-
     inputCity.value && inputCity.classList.add("active");
     inputCity.value === "" && inputCity.classList.remove("active");
 
@@ -63,13 +57,44 @@ const handleUserNameInput = () => {
  * Функція встановлює позицію лейбла та валідує дані інпута фамілії користувача (мін. 2 символи)
  * Функция устанавливает позицию лейбла и валидирует данные инпута фамилии пользователя (мин. 2 символа)
  */
- const handleUserSurnameInput = () => {
+const handleUserSurnameInput = () => {
     inputSurname.value && inputSurname.classList.add("active");
     inputSurname.value === "" && inputSurname.classList.remove("active");
 
     inputSurname.value.length < 2
         ? inputSurname.classList.add("error")
         : inputSurname.classList.remove("error");
+};
+
+/**
+ * Function set label position and validate input email data
+ * Функція встановлює позицію лейбла та валідує дані інпута email користувача
+ * Функция устанавливает позицию лейбла и валидирует данные инпута email пользователя
+ */
+const handleUserEmailInput = () => {
+    inputEmail.value && inputEmail.classList.add("active");
+    inputEmail.value === "" && inputEmail.classList.remove("active");
+
+    const regExEmail =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    !regExEmail.test(String(inputEmail.value).toLowerCase())
+        ? inputEmail.classList.add("error")
+        : inputEmail.classList.remove("error");
+};
+
+/**
+ * Function set label position and validate input phone data
+ * Функція встановлює позицію лейбла та валідує дані інпута телефона користувача
+ * Функция устанавливает позицию лейбла и валидирует данные инпута телефона пользователя
+ */
+const handleUserPhoneInput = () => {
+    inputPhone.value && inputPhone.classList.add("active");
+    inputPhone.value === "" && inputPhone.classList.remove("active");
+
+    const phoneNumberLength = inputPhone.value.replace(/\D/g, "").length;
+
+    phoneNumberLength < 10 ? inputPhone.classList.add("error") : inputPhone.classList.remove("error");
 };
 
 // const handleSubmitForm = (e) => {
