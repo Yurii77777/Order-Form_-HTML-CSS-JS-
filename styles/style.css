@@ -1,0 +1,153 @@
+@import './reset.css';
+@import './settings.css';
+
+.order-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Code below is just for example */
+    width: 100%;
+    height: 100vh;
+}
+
+.order-block__add-to-cart-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--s-padding) var(--l-padding);
+    width: var(--main-width);
+    height: var(--main-heigth);
+    cursor: pointer;
+    color: var(--main-button-text-color);
+    background-color: var(--main-button-background-color);
+    border-color: var(--main-button-background-color);
+    border: 1px solid transparent;
+    border-radius: var(--xs-radius);
+}
+
+.order-block__add-to-cart-button:hover {
+    background-color: var(--main-button-background-color-hover);
+    border-color: var(--main-button-background-color-hover);
+}
+
+.order-block__add-to-cart-button.hidden {
+    display: none;
+}
+
+.order-block__button-img {
+    width: var(--main-cart-img-width);
+}
+
+.order-block__button-text {
+    font-size: var(--l-font-size);
+    text-transform: uppercase;
+}
+
+.order-block__form {
+    display: none;
+}
+
+.order-block__form.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100vh;
+    padding: var(--xl-padding);
+}
+
+.order-block__form-input-wrapper {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+    margin-bottom: var(--l-margin);
+}
+
+.order-block__form-input,
+.order-block__form-textarea {
+    flex: 1 1 auto;
+    padding: var(--s-padding) var(--l-padding);
+    font-size: var(--l-font-size);
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--main-input-text-color);
+    background-color: var(--main-input-background-color);
+    background-clip: padding-box;
+    border: 1px solid var(--main-input-border-color);
+    appearance: none;
+    border-radius: var(--xs-radius);
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.order-block__form-label {
+    position: absolute;
+    top: 9px;
+    left: 10px;
+    color: var(--main-label-color);
+}
+
+.order-block__form-input:focus {
+    border-color: var(--main-input-border-focus-color);
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+}
+
+.order-block__form-input:focus ~ .order-block__form-label {
+    font-size: 10px;
+    top: 20px;
+    left: 85%;
+    transition: all 0.2s ease;
+}
+
+.order-block__form-input.active ~ .order-block__form-label {
+    font-size: 10px;
+    top: 20px;
+    left: 85%;
+}
+
+.order-block__form-textarea:focus {
+    border-color: var(--main-input-border-focus-color);
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+}
+
+.order-block__form-textarea:focus ~ .order-block__form-label {
+    font-size: 10px;
+    top: 90%;
+    left: 85%;
+    transition: all 0.2s ease;
+}
+
+.order-block__form-textarea.active ~ .order-block__form-label {
+    font-size: 10px;
+    top: 90%;
+    left: 85%;
+}
+
+.order-block__form-button-submit {
+    padding: var(--s-padding) var(--l-padding);
+    width: var(--main-width);
+    height: var(--main-heigth);
+    cursor: pointer;
+    color: var(--main-button-text-color);
+    background-color: var(--main-button-background-color);
+    border-color: var(--main-button-background-color);
+    border: 1px solid transparent;
+    border-radius: var(--xs-radius);
+}
+
+@media (min-width: 576px) {}
+
+@media (min-width: 768px) {}
+
+@media (min-width: 992px) {}
+
+@media (min-width: 1200px) {
+}
+
+@media (min-width: 1400px) {}

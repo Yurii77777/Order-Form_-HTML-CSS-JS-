@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./styles/style.css" />
+        <title>CHAT-BOT v.1.0.0</title>
+    </head>
+    <body>
+        <section class="order-block">
+            <button
+                type="button"
+                class="order-block__add-to-cart-button"
+                onclick="handleOpenOrderForm()"
+            >
+                <img
+                    src="./images/cart-icon.svg"
+                    alt="Add to cart"
+                    title="Add to cart button"
+                    class="order-block__button-img"
+                />
+                <p class="order-block__button-text">Add to cart</p>
+            </button>
+
+            <!-- Hidden order form block -->
+            <form method="POST" class="order-block__form">
+                <div class="order-block__form-input-wrapper">
+                    <input
+                        type="text"
+                        name="order-user-name"
+                        id="order-user-name"
+                        class="order-block__form-input"
+                        onblur="handleLabelPosition()"
+                    />
+                    <label for="order-user-name" class="order-block__form-label"
+                        >Name</label
+                    >
+                </div>
+
+                <div class="order-block__form-input-wrapper">
+                    <input
+                        type="text"
+                        name="order-user-surname"
+                        id="order-user-surname"
+                        class="order-block__form-input"
+                        onblur="handleLabelPosition()"
+                    />
+                    <label
+                        for="order-user-surname"
+                        class="order-block__form-label"
+                        >Surname</label
+                    >
+                </div>
+
+                <div class="order-block__form-input-wrapper">
+                    <input
+                        type="text"
+                        name="order-user-email"
+                        id="order-user-email"
+                        class="order-block__form-input"
+                        onblur="handleLabelPosition()"
+                    />
+                    <label
+                        for="order-user-email"
+                        class="order-block__form-label"
+                        >E-mail</label
+                    >
+                </div>
+
+                <div class="order-block__form-input-wrapper">
+                    <input
+                        type="text"
+                        name="order-user-phone"
+                        id="order-user-phone"
+                        class="order-block__form-input"
+                        onblur="handleLabelPosition()"
+                    />
+                    <label
+                        for="order-user-phone"
+                        class="order-block__form-label"
+                        >Phone</label
+                    >
+                </div>
+
+                <div class="order-block__form-input-wrapper">
+                    <input
+                        type="text"
+                        name="order-user-city"
+                        id="order-user-city"
+                        class="order-block__form-input"
+                        onblur="handleLabelPosition()"
+                    />
+                    <label for="order-user-city" class="order-block__form-label"
+                        >City</label
+                    >
+                </div>
+
+                <div class="order-block__form-input-wrapper">
+                    <input
+                        type="text"
+                        name="order-user-address"
+                        id="order-user-address"
+                        class="order-block__form-input"
+                        onblur="handleLabelPosition()"
+                    />
+                    <label
+                        for="order-user-address"
+                        class="order-block__form-label"
+                        >Address</label
+                    >
+                </div>
+
+                <div class="order-block__form-input-wrapper">
+                    <textarea
+                        class="order-block__form-textarea"
+                        name="order-user-comment"
+                        id="order-user-comment"
+                        rows="5"
+                        onblur="handleLabelPosition()"
+                    ></textarea>
+                    <label
+                        for="order-user-comment"
+                        class="order-block__form-label"
+                        >Comment</label
+                    >
+                </div>
+
+                <button type="button" class="order-block__form-button-submit">
+                    Submit
+                </button>
+            </form>
+        </section>
+
+        <!-- <button type="button" onClick="handleSubmitForm()">Send</button> -->
+
+        <script
+            type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"
+        ></script>
+        <script type="text/javascript">
+            (function () {
+                emailjs.init("user_KDULJbU6SWJfT7yWC26T5");
+            })();
+        </script>
+        <script src="./js/main.js"></script>
+    </body>
+</html>

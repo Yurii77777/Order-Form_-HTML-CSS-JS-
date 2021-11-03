@@ -1,0 +1,38 @@
+:root {
+    /* Sizes for "Add to cart" button | Розміри для кнопки "Додати до кошика" | Размеры для кнопки "Добавить в корзину" */
+    --main-width: 180px;
+    --main-heigth: 40px;
+
+    /* Paddings | Паддінги | Паддинги */
+    --xs-padding: 3px;
+    --s-padding: 5px;
+    --m-padding: 7px;
+    --l-padding: 10px;
+    --xl-padding: 15px;
+
+    /* Margins | Марджини | Марджины */
+    --l-margin: 10px;
+
+    /* Colors | Кольори | Цвета */
+    --main-button-text-color: #fff;
+    --main-button-background-color: #0d6efd;
+    --main-button-background-color-hover: #0b5ed7;
+    --main-input-text-color: #212529;
+    --main-input-background-color: #fff;
+    --main-input-border-color: #ced4da;
+    --main-input-border-focus-color: #86b7fe;
+    --main-label-color: #6b6b73;
+
+    /* Font size | Розмір шрифту | Размер шрифта */
+    --xs-font-size: 8px;
+    --s-font-size: 10px;
+    --m-font-size: 12px;
+    --l-font-size: 15px;
+    --xl-font-size: 20px;
+
+    /* Radius | Радіус | Радиус */
+    --xs-radius: 3px;
+
+    /* Cart img width | Зображення корзини | Изображение корзины */
+    --main-cart-img-width: 30px;
+}
