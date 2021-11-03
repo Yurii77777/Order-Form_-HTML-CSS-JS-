@@ -110,6 +110,12 @@
     left: 85%;
 }
 
+.order-block__form-input.active.error,
+.order-block__form-input.error {
+    border-bottom-color: var(--input-border-error-color);
+    border-bottom-width: 3px;
+}
+
 .order-block__form-textarea:focus {
     border-color: var(--main-input-border-focus-color);
     outline: 0;
