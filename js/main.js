@@ -13,6 +13,16 @@ const inputAddress = document.getElementById("order-user-address");
 const inputComment = document.getElementById("order-user-comment");
 
 /**
+ * Markers for submit order form. If one of them = false, form will not submit.
+ * Маркери для відправки форми замовлення. Якщо хочаб один із них = false, форма не буде відправлена.
+ * Маркеры для отправки формы заказа. Если хотябы один из них = false, форма не будет отправлена
+ */
+let isInputName = false;
+let isInputSurname = false;
+let isInputEmail = false;
+let isInputPhone = false;
+
+/**
  * Function hides main button and shows order form
  * Функція приховує головну кнопку та вікриває форму замовлення
  * Функция скрывает главную кнопку и открывает форму заказа
@@ -47,9 +57,14 @@ const handleUserNameInput = () => {
     inputName.value && inputName.classList.add("active");
     inputName.value === "" && inputName.classList.remove("active");
 
-    inputName.value.length < 2
-        ? inputName.classList.add("error")
-        : inputName.classList.remove("error");
+    if (inputName.value.length < 2) {
+        inputName.classList.add("error");
+        isInputName = false;
+
+    } else {
+        inputName.classList.remove("error");
+        isInputName = true;
+    }
 };
 
 /**
@@ -61,9 +76,14 @@ const handleUserSurnameInput = () => {
     inputSurname.value && inputSurname.classList.add("active");
     inputSurname.value === "" && inputSurname.classList.remove("active");
 
-    inputSurname.value.length < 2
-        ? inputSurname.classList.add("error")
-        : inputSurname.classList.remove("error");
+    if (inputSurname.value.length < 2) {
+        inputSurname.classList.add("error");
+        isInputSurname = false;
+
+    } else {
+        inputSurname.classList.remove("error");
+        isInputSurname = true;
+    }
 };
 
 /**
@@ -78,9 +98,14 @@ const handleUserEmailInput = () => {
     const regExEmail =
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-    !regExEmail.test(String(inputEmail.value).toLowerCase())
-        ? inputEmail.classList.add("error")
-        : inputEmail.classList.remove("error");
+    if (!regExEmail.test(String(inputEmail.value).toLowerCase())) {
+        inputEmail.classList.add("error");
+        isInputEmail = false;
+
+    } else {
+        inputEmail.classList.remove("error");
+        isInputEmail = true;
+    }
 };
 
 /**
@@ -94,14 +119,32 @@ const handleUserPhoneInput = () => {
 
     const phoneNumberLength = inputPhone.value.replace(/\D/g, "").length;
 
-    phoneNumberLength < 10 ? inputPhone.classList.add("error") : inputPhone.classList.remove("error");
+    if (phoneNumberLength < 10) {
+        inputPhone.classList.add("error");
+        isInputPhone = false;
+
+    } else {
+        inputPhone.classList.remove("error");
+        isInputPhone = true;
+    }
 };
 
-// const handleSubmitForm = (e) => {
+const handleSubmitForm = () => {
+
+    let data = {};
+
+    if (isInputName && isInputSurname && isInputEmail && isInputPhone) {
+        data.userName = inputName.value;
+        data.userSurname = inputSurname.value;
+        data.userEmail = inputEmail.value;
+        data.userPhone = inputPhone.value;
+
+        console.log('[data]', data);
+    }
 
 //     emailjs.send("andyurii00@gmail.com","template_532jxx2", {
 //         message: 'Hi there!'
 //     });
 
 //     console.log("Hello from handleSubmitForm");
-// };
+};
