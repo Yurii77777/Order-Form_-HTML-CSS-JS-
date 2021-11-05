@@ -1,3 +1,10 @@
+/**
+ * Made by Yurets in UA!
+ * Copyright (c) GPL License <2021> <Yurii Andriiko>
+ * Telegram @Yurets7777 E-mail: yuretshome@gmail.com
+ * "Делай хорошо, только хорошо! А можешь? - Делай лучше!"
+ */
+
 :root {
     /* Sizes for "Add to cart" button | Розміри для кнопки "Додати до кошика" | Размеры для кнопки "Добавить в корзину" */
     --main-width: 180px;
@@ -11,7 +18,7 @@
     --xl-padding: 15px;
 
     /* Margins | Марджини | Марджины */
-    --l-margin: 10px;
+    --l-margin: 20px;
 
     /* Colors | Кольори | Цвета */
     --main-button-text-color: #fff;
@@ -21,6 +28,12 @@
     --main-input-background-color: #fff;
     --main-input-border-color: #ced4da;
     --input-border-error-color: #cc0000;
+    --error-text-color: #842029;
+    --error-message-background-color: #f8d7da;
+    --error-message-border-color: #f5c2c7;
+    --submit-message-text-color: #055160;
+    --submit-message-background-color: #cff4fc;
+    --submit-message-border-color: #b6effb;
     --main-input-border-focus-color: #86b7fe;
     --main-label-color: #6b6b73;
 

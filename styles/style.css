@@ -1,3 +1,10 @@
+/**
+ * Made by Yurets in UA!
+ * Copyright (c) GPL License <2021> <Yurii Andriiko>
+ * Telegram @Yurets7777 E-mail: yuretshome@gmail.com
+ * "Делай хорошо, только хорошо! А можешь? - Делай лучше!"
+ */
+
 @import './reset.css';
 @import './settings.css';
 
@@ -53,7 +60,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     width: 100%;
     height: 100vh;
     padding: var(--xl-padding);
@@ -147,13 +153,91 @@
     border-radius: var(--xs-radius);
 }
 
-@media (min-width: 576px) {}
-
-@media (min-width: 768px) {}
-
-@media (min-width: 992px) {}
-
-@media (min-width: 1200px) {
+#order-block__error_message {
+    display: none;
 }
 
-@media (min-width: 1400px) {}
+#order-block__error_message.active,
+#order-block__submit_message.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.5;
+    text-align: center;
+    border-radius: var(--xs-radius);
+    width: 80%;
+    height:140px;
+}
+
+#order-block__error_message.active {
+    color: var(--error-text-color);
+    background-color: var(--error-message-background-color);
+    border: 1px solid var(--error-message-border-color);
+}
+
+#order-block__submit_message {
+    display: none;
+}
+
+#order-block__submit_message.active {
+    color: var(--submit-message-text-color);
+    background-color: var(--submit-message-background-color);
+    border: 1px solid var(--submit-message-border-color);
+}
+
+@media (min-width: 576px) {
+    .order-block__form-input:focus ~ .order-block__form-label {
+        left: 90%;
+    }
+    
+    .order-block__form-input.active ~ .order-block__form-label {
+        left: 90%;
+    }
+
+    .order-block__form-textarea:focus ~ .order-block__form-label {
+        left: 90%;
+    }
+    
+    .order-block__form-textarea.active ~ .order-block__form-label {
+        left: 90%;
+    }
+}
+
+@media (min-width: 768px) {
+    .order-block__form-input:focus ~ .order-block__form-label {
+        left: 92%;
+    }
+    
+    .order-block__form-input.active ~ .order-block__form-label {
+        left: 92%;
+    }
+
+    .order-block__form-textarea:focus ~ .order-block__form-label {
+        left: 92%;
+    }
+    
+    .order-block__form-textarea.active ~ .order-block__form-label {
+        left: 92%;
+    }
+}
+
+@media (min-width: 992px) {
+    .order-block__form.active {
+        width: 70%;
+    }
+
+    #order-block__error_message.active,
+    #order-block__submit_message.active {
+        width: 400px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .order-block__form.active {
+        width: 700px;
+    }
+}

@@ -1,3 +1,9 @@
+/**
+ * Made by Yurets in UA!
+ * Copyright (c) GPL License <2021> <Yurii Andriiko>
+ * Telegram @Yurets7777 E-mail: yuretshome@gmail.com
+ * "Делай хорошо, только хорошо! А можешь? - Делай лучше!"
+ */
 "use strict";
 
 const showOrderFormButton = document.getElementsByClassName(
@@ -11,6 +17,8 @@ const inputPhone = document.getElementById("order-user-phone");
 const inputCity = document.getElementById("order-user-city");
 const inputAddress = document.getElementById("order-user-address");
 const inputComment = document.getElementById("order-user-comment");
+const errorMessageNode = document.getElementById("order-block__error_message");
+const submitMessageNode = document.getElementById("order-block__submit_message");
 
 /**
  * Markers for submit order form. If one of them = false, form will not submit.
@@ -60,7 +68,6 @@ const handleUserNameInput = () => {
     if (inputName.value.length < 2) {
         inputName.classList.add("error");
         isInputName = false;
-
     } else {
         inputName.classList.remove("error");
         isInputName = true;
@@ -79,7 +86,6 @@ const handleUserSurnameInput = () => {
     if (inputSurname.value.length < 2) {
         inputSurname.classList.add("error");
         isInputSurname = false;
-
     } else {
         inputSurname.classList.remove("error");
         isInputSurname = true;
@@ -101,7 +107,6 @@ const handleUserEmailInput = () => {
     if (!regExEmail.test(String(inputEmail.value).toLowerCase())) {
         inputEmail.classList.add("error");
         isInputEmail = false;
-
     } else {
         inputEmail.classList.remove("error");
         isInputEmail = true;
@@ -122,15 +127,18 @@ const handleUserPhoneInput = () => {
     if (phoneNumberLength < 10) {
         inputPhone.classList.add("error");
         isInputPhone = false;
-
     } else {
         inputPhone.classList.remove("error");
         isInputPhone = true;
     }
 };
 
+/**
+ * Function gettin all data from inputs and sending E-mail
+ * Функція дістає всі данні з полів форми та надсилає E-mail
+ * Функция достает все данные с полей формы и отправляет E-mail
+ */
 const handleSubmitForm = () => {
-
     let data = {};
 
     if (isInputName && isInputSurname && isInputEmail && isInputPhone) {
@@ -138,13 +146,48 @@ const handleSubmitForm = () => {
         data.userSurname = inputSurname.value;
         data.userEmail = inputEmail.value;
         data.userPhone = inputPhone.value;
+        data.inputCity = inputCity.value;
+        data.inputAddress = inputAddress.value;
+        data.inputComment = inputComment.value;
 
-        console.log('[data]', data);
+        emailjs.send("andyurii00@gmail.com", "template_532jxx2", {
+            message: `Name: ${data.userName}. Surname: ${data.userSurname}. E-mail: ${data.userEmail}. Phone: ${data.userPhone}. City: ${data.inputCity}. Address: ${data.inputAddress}. Comment: ${data.inputComment}`,
+        });
+
+        //TODO: Fix cleaning inputs after sending form!
+        inputName.value = null;
+        inputName.classList.remove("active");
+        isInputName = false;
+
+        inputSurname.value = null;
+        inputSurname.classList.remove("active");
+        isInputSurname = false;
+
+        inputEmail.value = null;
+        inputEmail.classList.remove("active");
+        isInputEmail = false;
+
+        inputPhone.value = null;
+        inputPhone.classList.remove("active");
+        isInputPhone = false;
+
+        inputCity.value = null;
+        inputCity.classList.remove("active");
+        inputAddress.value = null;
+        inputAddress.classList.remove("active");
+        inputComment.value = null;
+        inputComment.classList.remove("active");
+
+        submitMessageNode.classList.add("active");
+        setTimeout(() => {
+            submitMessageNode.classList.remove("active");
+        }, 2000);
+
+    } else {
+        errorMessageNode.classList.add("active");
+
+        setTimeout(() => {
+            errorMessageNode.classList.remove("active");
+        }, 2000);
     }
-
-//     emailjs.send("andyurii00@gmail.com","template_532jxx2", {
-//         message: 'Hi there!'
-//     });
-
-//     console.log("Hello from handleSubmitForm");
 };
